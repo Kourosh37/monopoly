@@ -15,7 +15,7 @@ import java.net.URL;
 import java.util.*;
 
 import com.monopoly.client.Client;
-import com.monopoly.model.Game;
+import com.monopoly.model.game.GameState;
 import com.monopoly.model.player.Player;
 import com.monopoly.model.property.Property;
 
@@ -42,7 +42,7 @@ public class AuctionDialogController implements Initializable {
     @FXML private HBox bidControlsBox;
     
     private Client client;
-    private Game game;
+    private GameState game;
     private Player myPlayer;
     private Property auctionProperty;
     private int currentBid = 0;
@@ -96,7 +96,7 @@ public class AuctionDialogController implements Initializable {
     /**
      * Starts the auction
      */
-    public void startAuction(Client client, Game game, Player myPlayer, Property property) {
+    public void startAuction(Client client, GameState game, Player myPlayer, Property property) {
         this.client = client;
         this.game = game;
         this.myPlayer = myPlayer;
@@ -146,7 +146,7 @@ public class AuctionDialogController implements Initializable {
         }
         
         if (propertyRentLabel != null) {
-            propertyRentLabel.setText("Base Rent: $" + auctionProperty.getRent());
+            propertyRentLabel.setText("Base Rent: $" + auctionProperty.getBaseRent());
         }
         
         if (currentBidLabel != null) {
@@ -167,7 +167,7 @@ public class AuctionDialogController implements Initializable {
         biddersBox.getChildren().clear();
         bidderLabels.clear();
         
-        for (Player p : game.getPlayers()) {
+        for (Player p : game.getPlayers().values()) {
             if (!p.isBankrupt()) {
                 HBox bidderRow = new HBox(10);
                 bidderRow.setAlignment(Pos.CENTER_LEFT);
@@ -383,7 +383,7 @@ public class AuctionDialogController implements Initializable {
         
         // Update highest bidder
         if (highestBidderLabel != null && game != null) {
-            Player bidder = game.getPlayerById(playerId);
+            Player bidder = game.getPlayer(playerId);
             if (bidder != null) {
                 highestBidderLabel.setText(bidder.getName());
                 highestBidderLabel.setStyle("-fx-text-fill: " + getPlayerColor(playerId) + ";");
@@ -466,7 +466,7 @@ public class AuctionDialogController implements Initializable {
         
         // Determine winner
         if (highestBidderId >= 0 && game != null) {
-            Player winner = game.getPlayerById(highestBidderId);
+            Player winner = game.getPlayer(highestBidderId);
             showAuctionResult(winner, currentBid);
         } else {
             showNoWinner();

@@ -1,0 +1,9 @@
+com\monopoly\datastructures\HashTableTest.class
+com\monopoly\logic\GameLogicTest.class
+com\monopoly\datastructures\CircularLinkedListTest.class
+com\monopoly\datastructures\HeapTest.class
+com\monopoly\datastructures\BSTTest.class
+com\monopoly\datastructures\GraphTest.class
+com\monopoly\datastructures\QueueTest.class
+com\monopoly\datastructures\StackTest.class
+com\monopoly\network\ProtocolTest.class

@@ -1,0 +1,164 @@
+# ====================================
+# Monopoly Project .gitignore
+# ====================================
+
+# -------------------------------------
+# Maven
+# -------------------------------------
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+.mvn/wrapper/maven-wrapper.jar
+
+# -------------------------------------
+# Java
+# -------------------------------------
+*.class
+*.jar
+*.war
+*.ear
+*.nar
+hs_err_pid*
+replay_pid*
+
+# -------------------------------------
+# IDE - IntelliJ IDEA
+# -------------------------------------
+.idea/
+*.iml
+*.ipr
+*.iws
+out/
+.idea_modules/
+
+# -------------------------------------
+# IDE - Eclipse
+# -------------------------------------
+.classpath
+.project
+.settings/
+bin/
+.metadata/
+
+# -------------------------------------
+# IDE - NetBeans
+# -------------------------------------
+nbproject/private/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
+
+# -------------------------------------
+# IDE - VS Code
+# -------------------------------------
+.vscode/
+*.code-workspace
+
+# -------------------------------------
+# OS Generated Files
+# -------------------------------------
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+*.stackdump
+[Dd]esktop.ini
+$RECYCLE.BIN/
+
+# Linux
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*
+
+# -------------------------------------
+# Logs
+# -------------------------------------
+*.log
+logs/
+log/
+
+# -------------------------------------
+# Runtime Data
+# -------------------------------------
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# -------------------------------------
+# Test Output
+# -------------------------------------
+test-output/
+surefire-reports/
+failsafe-reports/
+
+# -------------------------------------
+# JavaFX
+# -------------------------------------
+*.fxbuild
+
+# -------------------------------------
+# Package Files
+# -------------------------------------
+*.zip
+*.tar.gz
+*.rar
+*.7z
+
+# -------------------------------------
+# Temporary Files
+# -------------------------------------
+tmp/
+temp/
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+
+# -------------------------------------
+# Backup Files
+# -------------------------------------
+*.bak
+*.backup
+*.orig
+
+# -------------------------------------
+# Environment & Config
+# -------------------------------------
+.env
+.env.local
+.env.*.local
+config.local.properties
+
+# -------------------------------------
+# Build Artifacts
+# -------------------------------------
+build/
+dist/
+lib/
+
+# -------------------------------------
+# Documentation (generated)
+# -------------------------------------
+docs/api/
+javadoc/
+site/

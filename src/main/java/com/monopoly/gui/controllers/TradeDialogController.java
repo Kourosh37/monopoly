@@ -17,10 +17,10 @@ import java.net.URL;
 import java.util.*;
 
 import com.monopoly.client.Client;
-import com.monopoly.model.Game;
+import com.monopoly.model.game.GameState;
 import com.monopoly.model.player.Player;
 import com.monopoly.model.property.Property;
-import com.monopoly.protocol.TradeProposal;
+import com.monopoly.logic.TradeProposal;
 
 /**
  * Controller for the trade dialog.
@@ -46,7 +46,7 @@ public class TradeDialogController implements Initializable {
     @FXML private HBox proposeButtonsBox;
     
     private Client client;
-    private Game game;
+    private GameState game;
     private Player myPlayer;
     private Player targetPlayer;
     private List<Property> offeredProperties = new ArrayList<>();
@@ -96,7 +96,7 @@ public class TradeDialogController implements Initializable {
     /**
      * Sets up the trade dialog for proposing a trade
      */
-    public void setupForProposal(Client client, Game game, Player myPlayer) {
+    public void setupForProposal(Client client, GameState game, Player myPlayer) {
         this.client = client;
         this.game = game;
         this.myPlayer = myPlayer;
@@ -132,7 +132,7 @@ public class TradeDialogController implements Initializable {
     /**
      * Sets up the trade dialog for responding to an incoming trade
      */
-    public void setupForResponse(Client client, Game game, Player myPlayer, TradeProposal proposal) {
+    public void setupForResponse(Client client, GameState game, Player myPlayer, TradeProposal proposal) {
         this.client = client;
         this.game = game;
         this.myPlayer = myPlayer;
@@ -170,7 +170,7 @@ public class TradeDialogController implements Initializable {
         if (targetPlayerComboBox == null || game == null) return;
         
         ObservableList<String> players = FXCollections.observableArrayList();
-        for (Player p : game.getPlayers()) {
+        for (Player p : game.getPlayers().values()) {
             if (!p.equals(myPlayer) && !p.isBankrupt()) {
                 players.add(p.getName() + " (ID: " + p.getId() + ")");
             }
@@ -186,7 +186,7 @@ public class TradeDialogController implements Initializable {
         
         myPropertiesBox.getChildren().clear();
         
-        for (Property prop : myPlayer.getProperties()) {
+        for (Property prop : myPlayer.getOwnedProperties()) {
             Button propButton = createPropertyButton(prop, true);
             myPropertiesBox.getChildren().add(propButton);
         }
@@ -206,7 +206,7 @@ public class TradeDialogController implements Initializable {
         int endIdx = selected.lastIndexOf(")");
         if (startIdx > 3 && endIdx > startIdx) {
             int playerId = Integer.parseInt(selected.substring(startIdx, endIdx));
-            targetPlayer = game.getPlayerById(playerId);
+            targetPlayer = game.getPlayer(playerId);
             
             if (targetPlayer != null) {
                 populateTheirProperties();
@@ -233,7 +233,7 @@ public class TradeDialogController implements Initializable {
         
         theirPropertiesBox.getChildren().clear();
         
-        for (Property prop : targetPlayer.getProperties()) {
+        for (Property prop : targetPlayer.getOwnedProperties()) {
             Button propButton = createPropertyButton(prop, false);
             theirPropertiesBox.getChildren().add(propButton);
         }
