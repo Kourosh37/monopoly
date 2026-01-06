@@ -1,0 +1,121 @@
+/*
+ * Styles for the game board and tiles.
+ */
+
+/* Tile base styles */
+.tile {
+    -fx-border-color: #424242;
+    -fx-border-width: 1;
+    -fx-background-color: #E8F5E9;
+}
+
+/* Corner tiles */
+.tile-corner {
+    -fx-min-width: 100;
+    -fx-min-height: 100;
+}
+
+/* Regular tiles */
+.tile-regular {
+    -fx-min-width: 70;
+    -fx-min-height: 100;
+}
+
+/* Color bars for property tiles */
+.color-bar {
+    -fx-min-height: 20;
+}
+
+.color-brown { -fx-background-color: #795548; }
+.color-light-blue { -fx-background-color: #03A9F4; }
+.color-pink { -fx-background-color: #E91E63; }
+.color-orange { -fx-background-color: #FF9800; }
+.color-red { -fx-background-color: #F44336; }
+.color-yellow { -fx-background-color: #FFEB3B; }
+.color-green { -fx-background-color: #4CAF50; }
+.color-dark-blue { -fx-background-color: #1565C0; }
+
+/* Special tiles */
+.tile-go {
+    -fx-background-color: #FFCDD2;
+}
+
+.tile-jail {
+    -fx-background-color: #FFE0B2;
+}
+
+.tile-free-parking {
+    -fx-background-color: #C8E6C9;
+}
+
+.tile-go-to-jail {
+    -fx-background-color: #FFCCBC;
+}
+
+.tile-chance {
+    -fx-background-color: #FFF9C4;
+}
+
+.tile-community-chest {
+    -fx-background-color: #B3E5FC;
+}
+
+.tile-tax {
+    -fx-background-color: #D7CCC8;
+}
+
+.tile-railroad {
+    -fx-background-color: #ECEFF1;
+}
+
+.tile-utility {
+    -fx-background-color: #F3E5F5;
+}
+
+/* Ownership indicator */
+.ownership-indicator {
+    -fx-min-width: 15;
+    -fx-min-height: 15;
+    -fx-background-radius: 50%;
+}
+
+/* Buildings */
+.house {
+    -fx-background-color: #4CAF50;
+    -fx-min-width: 10;
+    -fx-min-height: 10;
+}
+
+.hotel {
+    -fx-background-color: #F44336;
+    -fx-min-width: 15;
+    -fx-min-height: 15;
+}
+
+/* Mortgaged indicator */
+.tile-mortgaged {
+    -fx-opacity: 0.6;
+}
+
+/* Highlighted tile */
+.tile-highlighted {
+    -fx-border-color: #FFD600;
+    -fx-border-width: 3;
+}
+
+/* Player tokens */
+.player-token {
+    -fx-background-radius: 50%;
+    -fx-min-width: 25;
+    -fx-min-height: 25;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 3, 0, 1, 1);
+}
+
+.player-token-1 { -fx-background-color: #F44336; }
+.player-token-2 { -fx-background-color: #2196F3; }
+.player-token-3 { -fx-background-color: #4CAF50; }
+.player-token-4 { -fx-background-color: #FFC107; }
+
+/* TODO: Add more tile-specific styles */
+/* TODO: Add dice styles */
+/* TODO: Add animation styles */

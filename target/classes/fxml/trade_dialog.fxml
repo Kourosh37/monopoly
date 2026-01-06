@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.Button?>
+
+<!--
+    Trade dialog for proposing trades between players.
+-->
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.monopoly.gui.controllers.TradeDialogController"
+      styleClass="trade-dialog"
+      spacing="15"
+      prefWidth="600"
+      prefHeight="500">
+
+    <!-- TODO: Add header "Propose Trade" -->
+    <!-- TODO: Add target player selector (ComboBox) -->
+    <!-- TODO: Add two-column layout: Your Offer | Your Request -->
+    <!-- TODO: Add property lists with add/remove buttons -->
+    <!-- TODO: Add money spinners -->
+    <!-- TODO: Add Get Out of Jail card spinners -->
+    <!-- TODO: Add Propose and Cancel buttons -->
+
+</VBox>

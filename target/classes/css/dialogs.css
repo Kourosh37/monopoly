@@ -1,0 +1,126 @@
+/*
+ * Styles for dialogs (trade, auction, connection, etc.)
+ */
+
+/* Dialog base styles */
+.dialog-pane {
+    -fx-background-color: white;
+    -fx-padding: 20;
+}
+
+.dialog-header {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-padding: 0 0 15 0;
+}
+
+/* Trade dialog */
+.trade-dialog {
+    -fx-background-color: white;
+}
+
+.trade-column {
+    -fx-background-color: #FAFAFA;
+    -fx-padding: 10;
+    -fx-border-color: #E0E0E0;
+    -fx-border-width: 1;
+    -fx-border-radius: 5;
+}
+
+.trade-column-header {
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+}
+
+/* Auction dialog */
+.auction-dialog {
+    -fx-background-color: white;
+}
+
+.auction-current-bid {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #4CAF50;
+}
+
+.auction-property-card {
+    -fx-background-color: #F5F5F5;
+    -fx-padding: 15;
+    -fx-border-radius: 5;
+}
+
+/* Connection dialog */
+.connection-dialog {
+    -fx-background-color: white;
+}
+
+.connection-field {
+    -fx-min-width: 250;
+}
+
+.connection-status {
+    -fx-font-size: 12px;
+}
+
+.connection-status-error {
+    -fx-text-fill: #F44336;
+}
+
+.connection-status-success {
+    -fx-text-fill: #4CAF50;
+}
+
+/* Property card popup */
+.property-card {
+    -fx-background-color: white;
+    -fx-padding: 15;
+    -fx-border-color: #424242;
+    -fx-border-width: 2;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 10, 0, 0, 5);
+}
+
+.property-card-name {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-alignment: CENTER;
+}
+
+.property-card-rent-row {
+    -fx-padding: 2 0;
+}
+
+/* Button styles */
+.dialog-button {
+    -fx-min-width: 100;
+    -fx-pref-height: 35;
+}
+
+.dialog-button-primary {
+    -fx-background-color: #4CAF50;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+
+.dialog-button-primary:hover {
+    -fx-background-color: #43A047;
+}
+
+.dialog-button-secondary {
+    -fx-background-color: #9E9E9E;
+    -fx-text-fill: white;
+}
+
+.dialog-button-secondary:hover {
+    -fx-background-color: #757575;
+}
+
+.dialog-button-danger {
+    -fx-background-color: #F44336;
+    -fx-text-fill: white;
+}
+
+.dialog-button-danger:hover {
+    -fx-background-color: #E53935;
+}
+
+/* TODO: Add more dialog-specific styles */

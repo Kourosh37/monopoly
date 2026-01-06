@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuItem?>
+
+<!--
+    Main game window layout.
+    Structure:
+    - Top: Menu bar
+    - Left: Player info panels
+    - Center: Game board
+    - Right: Action panel + Dice display
+    - Bottom: Log panel + Status bar
+-->
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.monopoly.gui.controllers.MainController"
+            prefWidth="1280" prefHeight="800">
+
+    <!-- TODO: Add top menu bar -->
+    <!-- TODO: Add left player panel -->
+    <!-- TODO: Add center board -->
+    <!-- TODO: Add right action panel -->
+    <!-- TODO: Add bottom log panel and status bar -->
+
+</BorderPane>

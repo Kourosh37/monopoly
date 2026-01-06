@@ -1,0 +1,44 @@
+{
+    "game": {
+        "name": "Monopoly",
+        "version": "1.0",
+        "maxPlayers": 4,
+        "minPlayers": 2
+    },
+    "rules": {
+        "startingMoney": 1500,
+        "goReward": 200,
+        "doubleOnLandingGo": false,
+        "jailFine": 50,
+        "maxTurnsInJail": 2,
+        "maxDoublesBeforeJail": 3,
+        "freeParkingJackpot": false,
+        "auctionStartingBid": 1,
+        "allowTradeInJail": true,
+        "evenBuildingRule": true
+    },
+    "bank": {
+        "totalHouses": 32,
+        "totalHotels": 12
+    },
+    "taxes": {
+        "incomeTax": 200,
+        "luxuryTax": 100
+    },
+    "railroads": {
+        "purchasePrice": 200,
+        "mortgageValue": 100,
+        "rent": [25, 50, 100, 200]
+    },
+    "utilities": {
+        "purchasePrice": 150,
+        "mortgageValue": 75,
+        "multiplierOne": 4,
+        "multiplierBoth": 10
+    },
+    "network": {
+        "defaultPort": 12345,
+        "connectionTimeoutMs": 30000,
+        "heartbeatIntervalMs": 5000
+    }
+}

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+
+<!--
+    Action panel with game control buttons.
+    Buttons disabled when action is not valid.
+-->
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.monopoly.gui.controllers.ActionPanelController"
+      styleClass="action-panel"
+      spacing="10"
+      prefWidth="200">
+
+    <!-- TODO: Add dice display area -->
+    <!-- TODO: Add Roll Dice button -->
+    <!-- TODO: Add Buy Property button -->
+    <!-- TODO: Add Build button -->
+    <!-- TODO: Add Trade button -->
+    <!-- TODO: Add Mortgage button -->
+    <!-- TODO: Add Undo/Redo buttons -->
+    <!-- TODO: Add End Turn button -->
+    <!-- TODO: Add Jail options (Pay Fine, Use Card) -->
+
+</VBox>

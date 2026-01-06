@@ -1,0 +1,79 @@
+/*
+ * Main stylesheet for Monopoly game.
+ */
+
+/* Root and general styles */
+.root {
+    -fx-font-family: "Segoe UI", Arial, sans-serif;
+    -fx-font-size: 14px;
+}
+
+/* Board styles */
+.board-container {
+    -fx-background-color: #C8E6C9;
+    -fx-padding: 10;
+}
+
+/* Player panel styles */
+.player-panel {
+    -fx-background-color: #F5F5F5;
+    -fx-padding: 10;
+    -fx-border-color: #BDBDBD;
+    -fx-border-width: 1;
+}
+
+.player-info-card {
+    -fx-background-color: white;
+    -fx-padding: 10;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 5, 0, 0, 2);
+}
+
+.player-info-card.current-turn {
+    -fx-border-color: #4CAF50;
+    -fx-border-width: 2;
+}
+
+.player-info-card.bankrupt {
+    -fx-opacity: 0.5;
+}
+
+/* Action panel styles */
+.action-panel {
+    -fx-background-color: #F5F5F5;
+    -fx-padding: 10;
+    -fx-border-color: #BDBDBD;
+    -fx-border-width: 1;
+}
+
+.action-button {
+    -fx-min-width: 150;
+    -fx-pref-height: 35;
+    -fx-font-weight: bold;
+}
+
+.action-button:disabled {
+    -fx-opacity: 0.5;
+}
+
+/* Log panel styles */
+.log-panel {
+    -fx-background-color: #FAFAFA;
+    -fx-padding: 5;
+    -fx-border-color: #E0E0E0;
+    -fx-border-width: 1 0 0 0;
+}
+
+/* Status bar styles */
+.status-bar {
+    -fx-background-color: #EEEEEE;
+    -fx-padding: 5 10;
+    -fx-border-color: #E0E0E0;
+    -fx-border-width: 1 0 0 0;
+}
+
+/* TODO: Add tile styles */
+/* TODO: Add token styles */
+/* TODO: Add button styles for each action */
+/* TODO: Add color group styles */
