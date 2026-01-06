@@ -101,6 +101,13 @@ mvn clean install
 ### Option 1: Host a Game
 
 **Step 1:** Start the server
+
+**On PowerShell (Windows):**
+```powershell
+mvn exec:java "-Dexec.mainClass=com.monopoly.server.ServerMain"
+```
+
+**On Bash/CMD:**
 ```bash
 mvn exec:java -Dexec.mainClass="com.monopoly.server.ServerMain"
 ```
