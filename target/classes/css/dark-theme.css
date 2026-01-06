@@ -1,0 +1,1114 @@
+/*
+ * Monopoly Dark Theme - Modern & Elegant
+ * A sophisticated dark theme with smooth animations and modern aesthetics
+ */
+
+/* ============================================
+   ROOT & GLOBAL STYLES
+   ============================================ */
+.root {
+    -fx-font-family: "Segoe UI", "Roboto", "San Francisco", Arial, sans-serif;
+    -fx-font-size: 14px;
+    -fx-base: #1a1a2e;
+    -fx-background: #16213e;
+    -fx-control-inner-background: #1f3460;
+    -fx-accent: #e94560;
+    -fx-focus-color: #e94560;
+    -fx-faint-focus-color: rgba(233, 69, 96, 0.3);
+}
+
+/* Color Variables (using looked-up colors) */
+* {
+    -mp-dark-bg: #0f0f23;
+    -mp-card-bg: #1a1a2e;
+    -mp-surface: #16213e;
+    -mp-surface-light: #1f3460;
+    -mp-primary: #e94560;
+    -mp-primary-light: #ff6b6b;
+    -mp-secondary: #0f3460;
+    -mp-accent: #00d9ff;
+    -mp-gold: #ffd700;
+    -mp-success: #00c853;
+    -mp-warning: #ffab00;
+    -mp-error: #ff5252;
+    -mp-text-primary: #ffffff;
+    -mp-text-secondary: #b0b0b0;
+    -mp-text-muted: #6c7a89;
+    -mp-border: #2a3f5f;
+    -mp-shadow: rgba(0, 0, 0, 0.4);
+}
+
+/* ============================================
+   MAIN CONTAINER
+   ============================================ */
+.main-container {
+    -fx-background-color: linear-gradient(to bottom right, #0f0f23, #16213e);
+}
+
+.game-title {
+    -fx-font-size: 28px;
+    -fx-font-weight: bold;
+    -fx-text-fill: linear-gradient(to right, #e94560, #ff6b6b);
+    -fx-effect: dropshadow(gaussian, rgba(233, 69, 96, 0.5), 10, 0, 0, 0);
+}
+
+/* ============================================
+   MENU BAR
+   ============================================ */
+.menu-bar {
+    -fx-background-color: #0f0f23;
+    -fx-border-color: #2a3f5f;
+    -fx-border-width: 0 0 1 0;
+    -fx-padding: 5 10;
+}
+
+.menu-bar .menu {
+    -fx-background-color: transparent;
+}
+
+.menu-bar .menu .label {
+    -fx-text-fill: #b0b0b0;
+    -fx-font-weight: 500;
+}
+
+.menu-bar .menu:hover .label,
+.menu-bar .menu:showing .label {
+    -fx-text-fill: #ffffff;
+}
+
+.context-menu {
+    -fx-background-color: #1a1a2e;
+    -fx-border-color: #2a3f5f;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-padding: 5;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 15, 0, 0, 5);
+}
+
+.menu-item {
+    -fx-background-color: transparent;
+    -fx-padding: 8 20;
+}
+
+.menu-item .label {
+    -fx-text-fill: #b0b0b0;
+}
+
+.menu-item:hover,
+.menu-item:focused {
+    -fx-background-color: #e94560;
+    -fx-background-radius: 5;
+}
+
+.menu-item:hover .label,
+.menu-item:focused .label {
+    -fx-text-fill: #ffffff;
+}
+
+/* ============================================
+   BUTTONS
+   ============================================ */
+.button {
+    -fx-background-color: #1f3460;
+    -fx-text-fill: #ffffff;
+    -fx-font-weight: 600;
+    -fx-padding: 10 20;
+    -fx-background-radius: 8;
+    -fx-border-radius: 8;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 5, 0, 0, 2);
+}
+
+.button:hover {
+    -fx-background-color: #2a4a7f;
+    -fx-effect: dropshadow(gaussian, rgba(233, 69, 96, 0.3), 10, 0, 0, 3);
+}
+
+.button:pressed {
+    -fx-background-color: #15294d;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 3, 0, 0, 1);
+}
+
+.button:disabled {
+    -fx-background-color: #1a1a2e;
+    -fx-text-fill: #6c7a89;
+    -fx-opacity: 0.7;
+}
+
+/* Primary Action Button */
+.button-primary {
+    -fx-background-color: linear-gradient(to bottom, #e94560, #d63850);
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 15px;
+}
+
+.button-primary:hover {
+    -fx-background-color: linear-gradient(to bottom, #ff5a75, #e94560);
+    -fx-effect: dropshadow(gaussian, rgba(233, 69, 96, 0.5), 15, 0, 0, 3);
+}
+
+.button-primary:pressed {
+    -fx-background-color: linear-gradient(to bottom, #c42d48, #b82540);
+}
+
+/* Secondary Button */
+.button-secondary {
+    -fx-background-color: transparent;
+    -fx-border-color: #e94560;
+    -fx-border-width: 2;
+    -fx-text-fill: #e94560;
+}
+
+.button-secondary:hover {
+    -fx-background-color: rgba(233, 69, 96, 0.2);
+}
+
+/* Success Button */
+.button-success {
+    -fx-background-color: linear-gradient(to bottom, #00c853, #00a844);
+}
+
+.button-success:hover {
+    -fx-background-color: linear-gradient(to bottom, #00e676, #00c853);
+}
+
+/* Warning Button */
+.button-warning {
+    -fx-background-color: linear-gradient(to bottom, #ffab00, #ff8f00);
+}
+
+/* Danger Button */
+.button-danger {
+    -fx-background-color: linear-gradient(to bottom, #ff5252, #e04545);
+}
+
+/* Roll Dice Button - Special */
+.roll-dice-button {
+    -fx-background-color: linear-gradient(to bottom, #ffd700, #ffb300);
+    -fx-text-fill: #1a1a2e;
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-padding: 15 40;
+    -fx-background-radius: 25;
+    -fx-border-radius: 25;
+    -fx-effect: dropshadow(gaussian, rgba(255, 215, 0, 0.5), 15, 0, 0, 3);
+}
+
+.roll-dice-button:hover {
+    -fx-background-color: linear-gradient(to bottom, #ffe44d, #ffd700);
+    -fx-effect: dropshadow(gaussian, rgba(255, 215, 0, 0.7), 20, 0, 0, 5);
+}
+
+/* ============================================
+   GAME BOARD
+   ============================================ */
+.board-container {
+    -fx-background-color: #1a1a2e;
+    -fx-padding: 15;
+    -fx-background-radius: 15;
+    -fx-border-radius: 15;
+    -fx-border-color: #2a3f5f;
+    -fx-border-width: 2;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 20, 0, 0, 5);
+}
+
+.board-center {
+    -fx-background-color: #0f0f23;
+    -fx-background-radius: 10;
+}
+
+.board-center-content {
+    -fx-padding: 20;
+    -fx-alignment: center;
+}
+
+.monopoly-logo {
+    -fx-font-size: 36px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #e94560;
+    -fx-effect: dropshadow(gaussian, rgba(233, 69, 96, 0.6), 15, 0, 0, 0);
+}
+
+/* ============================================
+   BOARD TILES
+   ============================================ */
+.tile {
+    -fx-background-color: #16213e;
+    -fx-border-color: #2a3f5f;
+    -fx-border-width: 1;
+    -fx-min-width: 70;
+    -fx-min-height: 90;
+    -fx-max-width: 70;
+    -fx-max-height: 90;
+    -fx-alignment: center;
+}
+
+.tile:hover {
+    -fx-effect: dropshadow(gaussian, rgba(0, 217, 255, 0.5), 10, 0, 0, 0);
+    -fx-cursor: hand;
+}
+
+.tile-corner {
+    -fx-min-width: 90;
+    -fx-min-height: 90;
+    -fx-max-width: 90;
+    -fx-max-height: 90;
+    -fx-background-radius: 5;
+}
+
+.tile-name {
+    -fx-font-size: 9px;
+    -fx-text-fill: #ffffff;
+    -fx-font-weight: 500;
+    -fx-text-alignment: center;
+    -fx-wrap-text: true;
+}
+
+.tile-price {
+    -fx-font-size: 10px;
+    -fx-text-fill: #00d9ff;
+    -fx-font-weight: bold;
+}
+
+/* Tile Color Bands */
+.tile-color-band {
+    -fx-min-height: 18;
+    -fx-max-height: 18;
+}
+
+.color-brown { -fx-background-color: #8B4513; }
+.color-light-blue { -fx-background-color: #87CEEB; }
+.color-pink { -fx-background-color: #FF69B4; }
+.color-orange { -fx-background-color: #FFA500; }
+.color-red { -fx-background-color: #FF0000; }
+.color-yellow { -fx-background-color: #FFFF00; }
+.color-green { -fx-background-color: #228B22; }
+.color-dark-blue { -fx-background-color: #00008B; }
+.color-railroad { -fx-background-color: #333333; }
+.color-utility { -fx-background-color: #CCCCCC; }
+
+/* Special Tiles */
+.tile-go {
+    -fx-background-color: linear-gradient(to bottom right, #00c853, #00a844);
+}
+
+.tile-jail {
+    -fx-background-color: linear-gradient(to bottom right, #ff9800, #f57c00);
+}
+
+.tile-free-parking {
+    -fx-background-color: linear-gradient(to bottom right, #e94560, #d63850);
+}
+
+.tile-go-to-jail {
+    -fx-background-color: linear-gradient(to bottom right, #2196f3, #1976d2);
+}
+
+.tile-chance {
+    -fx-background-color: linear-gradient(to bottom right, #9c27b0, #7b1fa2);
+}
+
+.tile-community-chest {
+    -fx-background-color: linear-gradient(to bottom right, #00bcd4, #0097a7);
+}
+
+.tile-tax {
+    -fx-background-color: linear-gradient(to bottom right, #607d8b, #455a64);
+}
+
+/* House & Hotel Indicators */
+.house-indicator {
+    -fx-fill: #00c853;
+    -fx-stroke: #ffffff;
+    -fx-stroke-width: 1;
+}
+
+.hotel-indicator {
+    -fx-fill: #ff0000;
+    -fx-stroke: #ffffff;
+    -fx-stroke-width: 1;
+}
+
+/* Mortgage Overlay */
+.tile-mortgaged {
+    -fx-opacity: 0.5;
+}
+
+.mortgage-overlay {
+    -fx-background-color: rgba(255, 0, 0, 0.3);
+}
+
+/* ============================================
+   PLAYER TOKENS
+   ============================================ */
+.player-token {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 5, 0, 0, 2);
+}
+
+.token-car { -fx-fill: #e94560; }
+.token-dog { -fx-fill: #00d9ff; }
+.token-hat { -fx-fill: #ffd700; }
+.token-ship { -fx-fill: #00c853; }
+.token-boot { -fx-fill: #ff9800; }
+.token-thimble { -fx-fill: #9c27b0; }
+.token-wheelbarrow { -fx-fill: #795548; }
+.token-iron { -fx-fill: #607d8b; }
+
+/* ============================================
+   PLAYER PANEL
+   ============================================ */
+.player-panel {
+    -fx-background-color: #0f0f23;
+    -fx-padding: 15;
+    -fx-spacing: 10;
+}
+
+.player-card {
+    -fx-background-color: #1a1a2e;
+    -fx-background-radius: 12;
+    -fx-border-radius: 12;
+    -fx-border-color: #2a3f5f;
+    -fx-border-width: 2;
+    -fx-padding: 15;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 8, 0, 0, 3);
+}
+
+.player-card:hover {
+    -fx-border-color: #00d9ff;
+    -fx-effect: dropshadow(gaussian, rgba(0, 217, 255, 0.3), 12, 0, 0, 3);
+}
+
+.player-card-active {
+    -fx-border-color: #e94560;
+    -fx-border-width: 3;
+    -fx-effect: dropshadow(gaussian, rgba(233, 69, 96, 0.5), 15, 0, 0, 3);
+}
+
+.player-card-bankrupt {
+    -fx-opacity: 0.5;
+    -fx-border-color: #ff5252;
+}
+
+.player-name {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #ffffff;
+}
+
+.player-money {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #00c853;
+}
+
+.player-money-negative {
+    -fx-text-fill: #ff5252;
+}
+
+.player-properties-count {
+    -fx-font-size: 12px;
+    -fx-text-fill: #b0b0b0;
+}
+
+.player-token-icon {
+    -fx-min-width: 40;
+    -fx-min-height: 40;
+    -fx-background-radius: 20;
+    -fx-border-radius: 20;
+    -fx-border-color: #ffffff;
+    -fx-border-width: 2;
+}
+
+.current-turn-indicator {
+    -fx-background-color: #e94560;
+    -fx-background-radius: 3;
+    -fx-min-width: 6;
+    -fx-min-height: 30;
+}
+
+.jail-badge {
+    -fx-background-color: #ff9800;
+    -fx-background-radius: 10;
+    -fx-padding: 3 8;
+    -fx-font-size: 10px;
+    -fx-text-fill: #1a1a2e;
+    -fx-font-weight: bold;
+}
+
+/* ============================================
+   ACTION PANEL
+   ============================================ */
+.action-panel {
+    -fx-background-color: #0f0f23;
+    -fx-padding: 15;
+    -fx-spacing: 15;
+}
+
+.action-section {
+    -fx-background-color: #1a1a2e;
+    -fx-background-radius: 12;
+    -fx-padding: 15;
+    -fx-spacing: 10;
+}
+
+.action-section-title {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #e94560;
+    -fx-border-color: #e94560;
+    -fx-border-width: 0 0 1 0;
+    -fx-padding: 0 0 8 0;
+}
+
+.action-button-grid {
+    -fx-hgap: 8;
+    -fx-vgap: 8;
+}
+
+/* ============================================
+   DICE DISPLAY
+   ============================================ */
+.dice-container {
+    -fx-background-color: #1a1a2e;
+    -fx-background-radius: 15;
+    -fx-padding: 20;
+    -fx-alignment: center;
+    -fx-spacing: 15;
+}
+
+.dice {
+    -fx-min-width: 60;
+    -fx-min-height: 60;
+    -fx-max-width: 60;
+    -fx-max-height: 60;
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 8, 0, 2, 2);
+    -fx-alignment: center;
+}
+
+.dice-dot {
+    -fx-fill: #1a1a2e;
+}
+
+.dice-rolling {
+    -fx-effect: dropshadow(gaussian, rgba(255, 215, 0, 0.8), 15, 0, 0, 0);
+}
+
+.dice-double {
+    -fx-background-color: linear-gradient(to bottom, #ffd700, #ffb300);
+    -fx-effect: dropshadow(gaussian, rgba(255, 215, 0, 0.6), 15, 0, 0, 0);
+}
+
+.dice-total {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #00d9ff;
+}
+
+/* ============================================
+   LOG PANEL
+   ============================================ */
+.log-panel {
+    -fx-background-color: #0f0f23;
+    -fx-padding: 10;
+    -fx-border-color: #2a3f5f;
+    -fx-border-width: 1 0 0 0;
+}
+
+.log-list {
+    -fx-background-color: #1a1a2e;
+    -fx-background-radius: 8;
+    -fx-border-radius: 8;
+    -fx-padding: 10;
+}
+
+.log-entry {
+    -fx-padding: 5 10;
+    -fx-background-radius: 5;
+}
+
+.log-entry:hover {
+    -fx-background-color: rgba(255, 255, 255, 0.05);
+}
+
+.log-timestamp {
+    -fx-font-size: 10px;
+    -fx-text-fill: #6c7a89;
+    -fx-font-family: "Consolas", monospace;
+}
+
+.log-message {
+    -fx-font-size: 12px;
+    -fx-text-fill: #b0b0b0;
+}
+
+.log-message-important {
+    -fx-text-fill: #ffd700;
+    -fx-font-weight: bold;
+}
+
+.log-message-error {
+    -fx-text-fill: #ff5252;
+}
+
+.log-message-success {
+    -fx-text-fill: #00c853;
+}
+
+/* ============================================
+   STATUS BAR
+   ============================================ */
+.status-bar {
+    -fx-background-color: #0f0f23;
+    -fx-padding: 8 15;
+    -fx-border-color: #2a3f5f;
+    -fx-border-width: 1 0 0 0;
+}
+
+.status-text {
+    -fx-font-size: 12px;
+    -fx-text-fill: #6c7a89;
+}
+
+.status-indicator {
+    -fx-background-radius: 5;
+    -fx-min-width: 10;
+    -fx-min-height: 10;
+}
+
+.status-connected {
+    -fx-background-color: #00c853;
+}
+
+.status-disconnected {
+    -fx-background-color: #ff5252;
+}
+
+.status-connecting {
+    -fx-background-color: #ffab00;
+}
+
+/* ============================================
+   DIALOGS
+   ============================================ */
+.dialog-pane {
+    -fx-background-color: #1a1a2e;
+    -fx-border-color: #2a3f5f;
+    -fx-border-width: 2;
+    -fx-border-radius: 15;
+    -fx-background-radius: 15;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.6), 25, 0, 0, 10);
+}
+
+.dialog-pane .header-panel {
+    -fx-background-color: linear-gradient(to right, #e94560, #ff6b6b);
+    -fx-padding: 20;
+    -fx-background-radius: 13 13 0 0;
+}
+
+.dialog-pane .header-panel .label {
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+}
+
+.dialog-pane .content {
+    -fx-padding: 20;
+}
+
+.dialog-pane .button-bar {
+    -fx-padding: 15 20;
+    -fx-background-color: #0f0f23;
+    -fx-background-radius: 0 0 13 13;
+}
+
+/* ============================================
+   PROPERTY CARD (DIALOG)
+   ============================================ */
+.property-card {
+    -fx-background-color: #1a1a2e;
+    -fx-background-radius: 15;
+    -fx-border-radius: 15;
+    -fx-min-width: 220;
+    -fx-max-width: 220;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 15, 0, 0, 5);
+}
+
+.property-card-header {
+    -fx-min-height: 60;
+    -fx-padding: 10;
+    -fx-background-radius: 13 13 0 0;
+    -fx-alignment: center;
+}
+
+.property-card-title {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #ffffff;
+    -fx-text-alignment: center;
+}
+
+.property-card-body {
+    -fx-padding: 15;
+    -fx-spacing: 8;
+}
+
+.property-card-row {
+    -fx-spacing: 10;
+}
+
+.property-card-label {
+    -fx-font-size: 12px;
+    -fx-text-fill: #b0b0b0;
+}
+
+.property-card-value {
+    -fx-font-size: 12px;
+    -fx-text-fill: #ffffff;
+    -fx-font-weight: bold;
+}
+
+.property-card-price {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #00d9ff;
+}
+
+/* ============================================
+   TRADE DIALOG
+   ============================================ */
+.trade-dialog {
+    -fx-min-width: 700;
+    -fx-min-height: 500;
+}
+
+.trade-panel {
+    -fx-background-color: #16213e;
+    -fx-background-radius: 10;
+    -fx-padding: 15;
+}
+
+.trade-panel-title {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #e94560;
+}
+
+.trade-item {
+    -fx-background-color: #1a1a2e;
+    -fx-background-radius: 8;
+    -fx-padding: 10;
+    -fx-cursor: hand;
+}
+
+.trade-item:hover {
+    -fx-background-color: #2a3f5f;
+}
+
+.trade-item-selected {
+    -fx-border-color: #00d9ff;
+    -fx-border-width: 2;
+    -fx-border-radius: 8;
+}
+
+.trade-arrow {
+    -fx-font-size: 30px;
+    -fx-text-fill: #e94560;
+}
+
+.trade-money-input {
+    -fx-background-color: #1f3460;
+    -fx-text-fill: #ffffff;
+    -fx-prompt-text-fill: #6c7a89;
+    -fx-border-color: #2a3f5f;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-padding: 10;
+}
+
+/* ============================================
+   AUCTION DIALOG
+   ============================================ */
+.auction-dialog {
+    -fx-min-width: 500;
+}
+
+.auction-property-display {
+    -fx-alignment: center;
+    -fx-padding: 20;
+}
+
+.auction-current-bid {
+    -fx-font-size: 36px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #ffd700;
+    -fx-effect: dropshadow(gaussian, rgba(255, 215, 0, 0.5), 10, 0, 0, 0);
+}
+
+.auction-bidder {
+    -fx-font-size: 14px;
+    -fx-text-fill: #b0b0b0;
+}
+
+.auction-timer {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #ff5252;
+}
+
+.auction-timer-warning {
+    -fx-text-fill: #ff5252;
+    -fx-effect: dropshadow(gaussian, rgba(255, 82, 82, 0.5), 10, 0, 0, 0);
+}
+
+.bid-button {
+    -fx-min-width: 80;
+}
+
+/* ============================================
+   CONNECTION DIALOG
+   ============================================ */
+.connection-dialog {
+    -fx-min-width: 450;
+}
+
+.connection-logo {
+    -fx-font-size: 42px;
+    -fx-font-weight: bold;
+    -fx-text-fill: linear-gradient(to right, #e94560, #ff6b6b);
+    -fx-effect: dropshadow(gaussian, rgba(233, 69, 96, 0.6), 15, 0, 0, 0);
+}
+
+.connection-subtitle {
+    -fx-font-size: 14px;
+    -fx-text-fill: #6c7a89;
+}
+
+.connection-input {
+    -fx-background-color: #1f3460;
+    -fx-text-fill: #ffffff;
+    -fx-prompt-text-fill: #6c7a89;
+    -fx-border-color: #2a3f5f;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+    -fx-padding: 12 15;
+    -fx-font-size: 14px;
+}
+
+.connection-input:focused {
+    -fx-border-color: #e94560;
+    -fx-effect: dropshadow(gaussian, rgba(233, 69, 96, 0.3), 10, 0, 0, 0);
+}
+
+/* ============================================
+   LOBBY SCREEN
+   ============================================ */
+.lobby-container {
+    -fx-background-color: linear-gradient(to bottom, #0f0f23, #16213e);
+    -fx-padding: 30;
+}
+
+.lobby-title {
+    -fx-font-size: 32px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #ffffff;
+}
+
+.room-card {
+    -fx-background-color: #1a1a2e;
+    -fx-background-radius: 12;
+    -fx-padding: 20;
+    -fx-spacing: 10;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 10, 0, 0, 3);
+}
+
+.room-card:hover {
+    -fx-background-color: #1f3460;
+    -fx-effect: dropshadow(gaussian, rgba(233, 69, 96, 0.3), 15, 0, 0, 5);
+}
+
+.room-name {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #ffffff;
+}
+
+.room-players {
+    -fx-font-size: 14px;
+    -fx-text-fill: #00d9ff;
+}
+
+.room-status {
+    -fx-font-size: 12px;
+    -fx-padding: 5 10;
+    -fx-background-radius: 10;
+}
+
+.room-status-waiting {
+    -fx-background-color: #00c853;
+    -fx-text-fill: #ffffff;
+}
+
+.room-status-playing {
+    -fx-background-color: #ff9800;
+    -fx-text-fill: #1a1a2e;
+}
+
+.room-status-full {
+    -fx-background-color: #ff5252;
+    -fx-text-fill: #ffffff;
+}
+
+/* ============================================
+   SCROLLBARS
+   ============================================ */
+.scroll-bar {
+    -fx-background-color: transparent;
+}
+
+.scroll-bar .track {
+    -fx-background-color: #1a1a2e;
+    -fx-background-radius: 5;
+}
+
+.scroll-bar .thumb {
+    -fx-background-color: #2a3f5f;
+    -fx-background-radius: 5;
+}
+
+.scroll-bar .thumb:hover {
+    -fx-background-color: #3a5f8f;
+}
+
+.scroll-bar .increment-button,
+.scroll-bar .decrement-button {
+    -fx-background-color: transparent;
+    -fx-padding: 0;
+}
+
+.scroll-bar .increment-arrow,
+.scroll-bar .decrement-arrow {
+    -fx-background-color: transparent;
+    -fx-shape: "";
+    -fx-padding: 0;
+}
+
+/* ============================================
+   TEXT FIELDS & INPUTS
+   ============================================ */
+.text-field {
+    -fx-background-color: #1f3460;
+    -fx-text-fill: #ffffff;
+    -fx-prompt-text-fill: #6c7a89;
+    -fx-border-color: #2a3f5f;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-padding: 10 15;
+}
+
+.text-field:focused {
+    -fx-border-color: #e94560;
+}
+
+/* ============================================
+   SPINNERS
+   ============================================ */
+.spinner {
+    -fx-background-color: #1f3460;
+    -fx-border-color: #2a3f5f;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+}
+
+.spinner .text-field {
+    -fx-background-color: transparent;
+    -fx-border-width: 0;
+}
+
+.spinner .increment-arrow-button,
+.spinner .decrement-arrow-button {
+    -fx-background-color: #2a3f5f;
+}
+
+.spinner .increment-arrow-button:hover,
+.spinner .decrement-arrow-button:hover {
+    -fx-background-color: #3a5f8f;
+}
+
+/* ============================================
+   COMBO BOX
+   ============================================ */
+.combo-box {
+    -fx-background-color: #1f3460;
+    -fx-border-color: #2a3f5f;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+}
+
+.combo-box .list-cell {
+    -fx-text-fill: #ffffff;
+    -fx-background-color: transparent;
+}
+
+.combo-box-popup .list-view {
+    -fx-background-color: #1a1a2e;
+    -fx-border-color: #2a3f5f;
+}
+
+.combo-box-popup .list-cell {
+    -fx-text-fill: #b0b0b0;
+    -fx-background-color: transparent;
+    -fx-padding: 8 15;
+}
+
+.combo-box-popup .list-cell:hover {
+    -fx-background-color: #2a3f5f;
+    -fx-text-fill: #ffffff;
+}
+
+/* ============================================
+   CHECKBOXES & RADIO BUTTONS
+   ============================================ */
+.check-box {
+    -fx-text-fill: #b0b0b0;
+}
+
+.check-box .box {
+    -fx-background-color: #1f3460;
+    -fx-border-color: #2a3f5f;
+    -fx-border-radius: 4;
+    -fx-background-radius: 4;
+}
+
+.check-box:selected .box {
+    -fx-background-color: #e94560;
+    -fx-border-color: #e94560;
+}
+
+.check-box:selected .mark {
+    -fx-background-color: #ffffff;
+}
+
+.radio-button {
+    -fx-text-fill: #b0b0b0;
+}
+
+.radio-button .radio {
+    -fx-background-color: #1f3460;
+    -fx-border-color: #2a3f5f;
+}
+
+.radio-button:selected .radio {
+    -fx-background-color: #1f3460;
+    -fx-border-color: #e94560;
+}
+
+.radio-button:selected .dot {
+    -fx-background-color: #e94560;
+}
+
+/* ============================================
+   TOOLTIPS
+   ============================================ */
+.tooltip {
+    -fx-background-color: #1a1a2e;
+    -fx-text-fill: #ffffff;
+    -fx-border-color: #2a3f5f;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-padding: 10;
+    -fx-font-size: 12px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 10, 0, 0, 3);
+}
+
+/* ============================================
+   PROGRESS INDICATORS
+   ============================================ */
+.progress-indicator {
+    -fx-progress-color: #e94560;
+}
+
+.progress-bar {
+    -fx-background-color: #1f3460;
+    -fx-background-radius: 5;
+}
+
+.progress-bar .bar {
+    -fx-background-color: linear-gradient(to right, #e94560, #ff6b6b);
+    -fx-background-radius: 5;
+}
+
+/* ============================================
+   ANIMATIONS - Keyframes defined in Java
+   ============================================ */
+.animated {
+    /* Placeholder for animated elements */
+}
+
+.pulse {
+    /* For pulsing effects */
+}
+
+.shake {
+    /* For error shake effects */
+}
+
+.slide-in {
+    /* For slide-in animations */
+}
+
+.fade-in {
+    /* For fade-in animations */
+}
+
+/* ============================================
+   WINNING SCREEN
+   ============================================ */
+.winner-screen {
+    -fx-background-color: rgba(0, 0, 0, 0.9);
+}
+
+.winner-title {
+    -fx-font-size: 48px;
+    -fx-font-weight: bold;
+    -fx-text-fill: linear-gradient(to right, #ffd700, #ffb300);
+    -fx-effect: dropshadow(gaussian, rgba(255, 215, 0, 0.7), 25, 0, 0, 0);
+}
+
+.winner-name {
+    -fx-font-size: 36px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #ffffff;
+}
+
+.winner-stats {
+    -fx-background-color: #1a1a2e;
+    -fx-background-radius: 15;
+    -fx-padding: 20;
+}
+
+/* ============================================
+   RESPONSIVE ADJUSTMENTS
+   ============================================ */
+@media (max-width: 1200px) {
+    .tile {
+        -fx-min-width: 60;
+        -fx-min-height: 75;
+        -fx-max-width: 60;
+        -fx-max-height: 75;
+    }
+    
+    .tile-corner {
+        -fx-min-width: 75;
+        -fx-min-height: 75;
+        -fx-max-width: 75;
+        -fx-max-height: 75;
+    }
+    
+    .tile-name {
+        -fx-font-size: 8px;
+    }
+}

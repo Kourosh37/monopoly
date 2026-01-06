@@ -66,6 +66,17 @@ public class LinkedList<T> implements Iterable<T> {
         }
         size++;
     }
+    
+    /**
+     * Adds an element at the end of the list.
+     * Convenience method equivalent to addLast.
+     * @param element the element to add
+     * @return true (as per Collection contract)
+     */
+    public boolean add(T element) {
+        addLast(element);
+        return true;
+    }
 
     /**
      * Adds an element at the specified index.

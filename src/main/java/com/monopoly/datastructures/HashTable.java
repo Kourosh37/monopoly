@@ -301,6 +301,14 @@ public class HashTable<K, V> implements Iterable<HashTable.Entry<K, V>> {
     }
 
     /**
+     * Returns all keys as an ArrayList (alias for keys() for compatibility).
+     * @return ArrayList of all keys
+     */
+    public ArrayList<K> keySet() {
+        return keys();
+    }
+
+    /**
      * Returns all values in the hash table.
      * @return ArrayList of all values
      */

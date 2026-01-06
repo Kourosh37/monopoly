@@ -5,12 +5,31 @@ package com.monopoly.model.game;
  */
 public enum GameStatus {
     
-    WAITING,       // Waiting for players to connect
-    STARTING,      // All players connected, game starting
-    IN_PROGRESS,   // Game is being played
-    PAUSED,        // Game paused (e.g., player disconnected)
-    FINISHED       // Game ended, winner determined
+    WAITING("Waiting for players"),
+    STARTING("Game starting"),
+    IN_PROGRESS("Game in progress"),
+    PAUSED("Game paused"),
+    FINISHED("Game finished");
 
-    // TODO: Add helper methods if needed
+    private final String description;
 
+    GameStatus(String description) {
+        this.description = description;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public boolean canJoin() {
+        return this == WAITING;
+    }
+
+    public boolean isPlayable() {
+        return this == IN_PROGRESS;
+    }
+
+    public boolean isEnded() {
+        return this == FINISHED;
+    }
 }

@@ -1,29 +1,92 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ProgressIndicator?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.geometry.Insets?>
 
-<!--
-    Connection dialog for connecting to server.
--->
 <VBox xmlns:fx="http://javafx.com/fxml"
       fx:controller="com.monopoly.gui.controllers.ConnectionDialogController"
-      styleClass="connection-dialog"
-      spacing="15"
-      prefWidth="350"
-      prefHeight="250"
-      alignment="CENTER">
-
-    <!-- TODO: Add header "Connect to Server" -->
-    <!-- TODO: Add server address field -->
-    <!-- TODO: Add server port field -->
-    <!-- TODO: Add player name field -->
-    <!-- TODO: Add Connect and Cancel buttons -->
-    <!-- TODO: Add progress indicator -->
-    <!-- TODO: Add status label -->
-
+      styleClass="connection-dialog" alignment="CENTER" spacing="30"
+      style="-fx-background-color: linear-gradient(to bottom, #0f0f23, #16213e);"
+      prefWidth="500" prefHeight="650">
+    
+    <padding><Insets top="40" right="40" bottom="40" left="40"/></padding>
+    
+    <!-- Logo Section -->
+    <VBox alignment="CENTER" spacing="10">
+        <Label text="🎩" style="-fx-font-size: 60px;"/>
+        <Label text="MONOPOLY" styleClass="connection-logo"/>
+        <Label text="Online Multiplayer Edition" styleClass="connection-subtitle"/>
+    </VBox>
+    
+    <!-- Connection Form -->
+    <VBox spacing="20" maxWidth="350">
+        
+        <!-- Player Name -->
+        <VBox spacing="8">
+            <Label text="Your Name" style="-fx-text-fill: #b0b0b0; -fx-font-size: 12px;"/>
+            <TextField fx:id="playerNameField" styleClass="connection-input" 
+                       promptText="Enter your name" maxWidth="Infinity"/>
+        </VBox>
+        
+        <!-- Server Address -->
+        <VBox spacing="8">
+            <Label text="Server Address" style="-fx-text-fill: #b0b0b0; -fx-font-size: 12px;"/>
+            <TextField fx:id="serverAddressField" styleClass="connection-input"
+                       promptText="localhost" text="localhost" maxWidth="Infinity"/>
+        </VBox>
+        
+        <!-- Port -->
+        <VBox spacing="8">
+            <Label text="Port" style="-fx-text-fill: #b0b0b0; -fx-font-size: 12px;"/>
+            <TextField fx:id="portField" styleClass="connection-input"
+                       promptText="8888" text="8888" maxWidth="Infinity"/>
+        </VBox>
+        
+        <!-- Token Selection -->
+        <VBox spacing="8">
+            <Label text="Choose Your Token" style="-fx-text-fill: #b0b0b0; -fx-font-size: 12px;"/>
+            <HBox fx:id="tokenSelectionBox" spacing="10" alignment="CENTER">
+                <ToggleButton fx:id="tokenCar" text="🚗" userData="CAR"
+                    style="-fx-font-size: 24px; -fx-min-width: 50; -fx-min-height: 50; -fx-background-color: #1f3460; -fx-background-radius: 10;"/>
+                <ToggleButton fx:id="tokenDog" text="🐕" userData="DOG"
+                    style="-fx-font-size: 24px; -fx-min-width: 50; -fx-min-height: 50; -fx-background-color: #1f3460; -fx-background-radius: 10;"/>
+                <ToggleButton fx:id="tokenHat" text="🎩" userData="HAT"
+                    style="-fx-font-size: 24px; -fx-min-width: 50; -fx-min-height: 50; -fx-background-color: #1f3460; -fx-background-radius: 10;"/>
+                <ToggleButton fx:id="tokenShip" text="🚢" userData="SHIP"
+                    style="-fx-font-size: 24px; -fx-min-width: 50; -fx-min-height: 50; -fx-background-color: #1f3460; -fx-background-radius: 10;"/>
+                <ToggleButton fx:id="tokenBoot" text="👢" userData="BOOT"
+                    style="-fx-font-size: 24px; -fx-min-width: 50; -fx-min-height: 50; -fx-background-color: #1f3460; -fx-background-radius: 10;"/>
+            </HBox>
+        </VBox>
+        
+    </VBox>
+    
+    <!-- Error Message -->
+    <Label fx:id="errorLabel" text="" style="-fx-text-fill: #ff5252; -fx-font-size: 12px;"
+           wrapText="true" maxWidth="350" alignment="CENTER"/>
+    
+    <!-- Buttons -->
+    <VBox spacing="12" maxWidth="350">
+        <Button fx:id="connectButton" text="🌐 Connect to Server" 
+                styleClass="button-primary" onAction="#handleConnect"
+                prefWidth="350" prefHeight="50"/>
+        
+        <Button fx:id="hostButton" text="🏠 Host New Game" 
+                styleClass="button-secondary" onAction="#handleHostGame"
+                prefWidth="350" prefHeight="45"/>
+    </VBox>
+    
+    <!-- Loading Indicator -->
+    <HBox fx:id="loadingBox" alignment="CENTER" spacing="10" visible="false" managed="false">
+        <ProgressIndicator prefWidth="20" prefHeight="20"/>
+        <Label fx:id="loadingLabel" text="Connecting..." style="-fx-text-fill: #b0b0b0;"/>
+    </HBox>
+    
+    <!-- Version -->
+    <Region VBox.vgrow="ALWAYS"/>
+    <Label text="v1.0.0" style="-fx-text-fill: #6c7a89; -fx-font-size: 10px;"/>
+    
 </VBox>

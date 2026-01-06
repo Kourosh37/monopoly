@@ -6,21 +6,81 @@ package com.monopoly.analytics;
  */
 public class PlayerRanking implements Comparable<PlayerRanking> {
 
-    // TODO: Implement playerId field
-    // TODO: Implement playerName field
-    // TODO: Implement netWorth field
-    // TODO: Implement totalRentCollected field
-    // TODO: Implement propertyCount field
-    // TODO: Implement buildingCount field
+    private final int playerId;
+    private String playerName;
+    private int netWorth;
+    private int totalRentCollected;
+    private int propertyCount;
+    private int buildingCount;
     
-    // TODO: Implement constructor
-    // TODO: Implement getters and setters
-    // TODO: Override compareTo() - for BST ordering (by netWorth)
-    // TODO: Implement updateNetWorth(int newWorth)
-    // TODO: Implement updateRentCollected(int additional)
-    // TODO: Implement updatePropertyCount(int count)
-    // TODO: Implement updateBuildingCount(int count)
-    // TODO: Implement equals() and hashCode()
-    // TODO: Implement toString()
-
+    /**
+     * Creates a PlayerRanking instance.
+     */
+    public PlayerRanking(int playerId, String playerName) {
+        this.playerId = playerId;
+        this.playerName = playerName;
+        this.netWorth = 0;
+        this.totalRentCollected = 0;
+        this.propertyCount = 0;
+        this.buildingCount = 0;
+    }
+    
+    // Getters
+    public int getPlayerId() { return playerId; }
+    public String getPlayerName() { return playerName; }
+    public int getNetWorth() { return netWorth; }
+    public int getTotalRentCollected() { return totalRentCollected; }
+    public int getPropertyCount() { return propertyCount; }
+    public int getBuildingCount() { return buildingCount; }
+    
+    // Setters
+    public void setPlayerName(String name) { this.playerName = name; }
+    public void setNetWorth(int netWorth) { this.netWorth = netWorth; }
+    
+    // Update methods
+    public void updateNetWorth(int newWorth) {
+        this.netWorth = newWorth;
+    }
+    
+    public void updateRentCollected(int additional) {
+        this.totalRentCollected += additional;
+    }
+    
+    public void updatePropertyCount(int count) {
+        this.propertyCount = count;
+    }
+    
+    public void updateBuildingCount(int count) {
+        this.buildingCount = count;
+    }
+    
+    @Override
+    public int compareTo(PlayerRanking other) {
+        // Higher net worth ranks first (descending order)
+        return Integer.compare(other.netWorth, this.netWorth);
+    }
+    
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        PlayerRanking other = (PlayerRanking) obj;
+        return playerId == other.playerId;
+    }
+    
+    @Override
+    public int hashCode() {
+        return Integer.hashCode(playerId);
+    }
+    
+    @Override
+    public String toString() {
+        return "PlayerRanking{" +
+                "playerId=" + playerId +
+                ", playerName='" + playerName + '\'' +
+                ", netWorth=$" + netWorth +
+                ", properties=" + propertyCount +
+                ", buildings=" + buildingCount +
+                '}';
+    }
 }

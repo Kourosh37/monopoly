@@ -9,20 +9,56 @@ import javafx.stage.Stage;
  */
 public class MainApp extends Application {
 
-    // TODO: Implement primaryStage field
-    // TODO: Implement client field (Client instance)
-    // TODO: Implement mainController field
+    private Stage primaryStage;
     
-    // TODO: Override start(Stage primaryStage)
-    // - Load main.fxml
-    // - Set up scene and stage
-    // - Show connection dialog first
-    // TODO: Override stop() - cleanup on close
-    // TODO: Implement showConnectionDialog() - server address input
-    // TODO: Implement showMainGame() - switches to game view
-    // TODO: Implement showError(String message) - error dialog
-    // TODO: Implement showInfo(String message) - info dialog
-    // TODO: Implement getClient()
-    // TODO: Implement main(String[] args) - launches application
-
+    @Override
+    public void start(Stage primaryStage) {
+        this.primaryStage = primaryStage;
+        primaryStage.setTitle("Monopoly");
+        // TODO: Load main.fxml
+        // TODO: Set up scene and stage
+        // TODO: Show connection dialog first
+        primaryStage.show();
+    }
+    
+    @Override
+    public void stop() {
+        // Cleanup on close
+    }
+    
+    /**
+     * Shows connection dialog for server address input
+     */
+    public void showConnectionDialog() {
+        // TODO: Implement
+    }
+    
+    /**
+     * Switches to game view
+     */
+    public void showMainGame() {
+        // TODO: Implement
+    }
+    
+    /**
+     * Shows error dialog
+     */
+    public void showError(String message) {
+        // TODO: Implement
+    }
+    
+    /**
+     * Shows info dialog
+     */
+    public void showInfo(String message) {
+        // TODO: Implement
+    }
+    
+    public Stage getPrimaryStage() {
+        return primaryStage;
+    }
+    
+    public static void main(String[] args) {
+        launch(args);
+    }
 }
