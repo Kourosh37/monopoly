@@ -124,7 +124,7 @@ public class MainApp extends Application {
             mainController.setMainApp(this);
             
             // Create and style scene
-            mainScene = new Scene(root, 1400, 900);
+            mainScene = new Scene(root, 1500, 950);
             applyDarkTheme(mainScene);
             
             // Enable window resizing

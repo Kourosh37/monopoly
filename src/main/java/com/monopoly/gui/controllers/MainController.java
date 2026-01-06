@@ -29,10 +29,14 @@ public class MainController implements Initializable {
 
     // FXML Injected Fields
     @FXML private BorderPane mainContainer;
+    @FXML private VBox playerPanelContainer;
     @FXML private VBox playerCardsContainer;
+    @FXML private StackPane boardContainer;
     @FXML private GridPane boardGrid;
     @FXML private VBox boardCenter;
     @FXML private HBox diceContainer;
+    @FXML private VBox actionPanel;
+    @FXML private VBox logPanel;
     @FXML private StackPane dice1, dice2;
     @FXML private Label dice1Value, dice2Value, diceTotal;
     @FXML private Button rollDiceButton;

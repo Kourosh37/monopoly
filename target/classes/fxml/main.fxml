@@ -9,7 +9,7 @@
 <BorderPane xmlns:fx="http://javafx.com/fxml"
             fx:controller="com.monopoly.gui.controllers.MainController"
             styleClass="main-container"
-            prefWidth="1400" prefHeight="900"
+            prefWidth="1500" prefHeight="950"
             fx:id="mainContainer">
 
     <!-- Top: Menu Bar -->
@@ -117,7 +117,7 @@
                     <Circle fx:id="currentPlayerToken" radius="15" styleClass="player-token"/>
                     <VBox spacing="2">
                         <Label fx:id="currentPlayerName" text="Player 1" styleClass="player-name"/>
-                        <Label fx:id="currentPlayerMoney" text="$1500" styleClass="player-money"/>
+                        <Label fx:id="currentPlayerMoney" text="1500" styleClass="player-money"/>
                     </VBox>
                 </HBox>
             </VBox>
@@ -153,7 +153,7 @@
             <!-- Jail Actions (shown when in jail) -->
             <VBox fx:id="jailActionsPane" styleClass="action-section" spacing="10" visible="false" managed="false">
                 <Label text="JAIL OPTIONS" styleClass="action-section-title"/>
-                <Button text="Pay $50 Fine" fx:id="payJailFineButton" onAction="#handlePayJailFine"
+                <Button text="Pay 50 Fine" fx:id="payJailFineButton" onAction="#handlePayJailFine"
                         styleClass="button-warning" prefWidth="240"/>
                 <Button text="Use Get Out Free Card" fx:id="useJailCardButton" onAction="#handleUseJailCard"
                         prefWidth="240"/>
