@@ -79,14 +79,14 @@ public class MainApp extends Application {
                 showMainGame();
             });
             
-            // Create and style scene
-            Scene scene = new Scene(root, 500, 600);
+            // Create and style scene - fullscreen
+            Scene scene = new Scene(root);
             applyDarkTheme(scene);
             
-            // Configure stage for connection dialog
+            // Configure stage for connection dialog - maximized and not resizable
             primaryStage.setScene(scene);
+            primaryStage.setMaximized(true);
             primaryStage.setResizable(false);
-            primaryStage.centerOnScreen();
             
             // Fade in animation
             root.setOpacity(0);

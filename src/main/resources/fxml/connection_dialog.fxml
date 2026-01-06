@@ -6,23 +6,25 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.geometry.Insets?>
 
-<VBox xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.monopoly.gui.controllers.ConnectionDialogController"
-      styleClass="connection-dialog" alignment="CENTER" spacing="30"
-      style="-fx-background-color: linear-gradient(to bottom, #0f0f23, #16213e);"
-      prefWidth="500" prefHeight="650">
+<!-- Outer container fills the screen, inner VBox is centered -->
+<StackPane xmlns:fx="http://javafx.com/fxml"
+           fx:controller="com.monopoly.gui.controllers.ConnectionDialogController"
+           style="-fx-background-color: linear-gradient(to bottom, #0f0f23, #16213e);">
+
+<VBox styleClass="connection-dialog" alignment="CENTER" spacing="30"
+      maxWidth="500" maxHeight="700">
     
     <padding><Insets top="40" right="40" bottom="40" left="40"/></padding>
     
     <!-- Logo Section -->
     <VBox alignment="CENTER" spacing="10">
-        <Label text="🎩" style="-fx-font-size: 60px;"/>
-        <Label text="MONOPOLY" styleClass="connection-logo"/>
-        <Label text="Online Multiplayer Edition" styleClass="connection-subtitle"/>
+        <Label text="🎩" style="-fx-font-size: 80px;"/>
+        <Label text="MONOPOLY" styleClass="connection-logo" style="-fx-font-size: 48px; -fx-font-weight: bold; -fx-text-fill: #ffffff;"/>
+        <Label text="Online Multiplayer Edition" styleClass="connection-subtitle" style="-fx-text-fill: #888888; -fx-font-size: 16px;"/>
     </VBox>
     
     <!-- Connection Form -->
-    <VBox spacing="20" maxWidth="350">
+    <VBox spacing="20" maxWidth="400" minWidth="350">
         
         <!-- Player Name -->
         <VBox spacing="8">
@@ -86,7 +88,7 @@
     </HBox>
     
     <!-- Version -->
-    <Region VBox.vgrow="ALWAYS"/>
-    <Label text="v1.0.0" style="-fx-text-fill: #6c7a89; -fx-font-size: 10px;"/>
+    <Label text="v1.0.0" style="-fx-text-fill: #6c7a89; -fx-font-size: 10px; -fx-padding: 20 0 0 0;"/>
     
 </VBox>
+</StackPane>
