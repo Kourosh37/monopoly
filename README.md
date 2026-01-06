@@ -1,194 +1,224 @@
-# Monopoly Client-Server Game
+# 🎩 Monopoly Online
 
-> **Course:** Data Structures and Algorithms  
-> **Technology:** Java 17 + JavaFX  
-> **Architecture:** Client-Server with Socket Communication
+A fully-featured multiplayer implementation of the classic Monopoly board game, built with Java and JavaFX.
 
-## 📖 Project Overview
+![Java](https://img.shields.io/badge/Java-17-orange)
+![JavaFX](https://img.shields.io/badge/JavaFX-17-blue)
+![License](https://img.shields.io/badge/License-MIT-green)
 
-A multiplayer **Monopoly** simulator for exactly **4 players**, built on a strict **Client-Server architecture**. The core objective is to demonstrate the **manual implementation** and correct application of specific Data Structures to manage game state, logs, and complex logic.
+## ✨ Features
 
-**Key Constraint:** No built-in library collections (e.g., `java.util.LinkedList`, `java.util.HashMap`) for the core data structures. All must be implemented from scratch.
+- 🎮 **Multiplayer Support** - Play with 2-6 players over network
+- 🖥️ **Beautiful Dark Theme UI** - Modern, eye-friendly interface with animations
+- 🎲 **Animated Dice Rolling** - Smooth dice animations with doubles detection
+- 🏠 **Full Property Management** - Buy, sell, mortgage, build houses & hotels
+- 💱 **Trading System** - Propose and negotiate trades with other players
+- 🔨 **Auction System** - Bid on properties with real-time timer
+- 🃏 **Chance & Community Chest** - All classic cards implemented
+- 🏛️ **Jail System** - Pay fine, use card, or roll doubles to escape
+- 📊 **Game Statistics** - Track your performance throughout the game
 
----
+## 🎯 Game Rules
 
-## 🏗️ Project Structure
+### Objective
+Be the last player remaining with money! Bankrupt all other players by collecting rent from your properties.
 
-```
-monopoly/
-├── src/
-│   ├── main/
-│   │   ├── java/com/monopoly/
-│   │   │   ├── datastructures/    # Manual DS implementations (50% of grade)
-│   │   │   │   ├── CircularLinkedList.java  # Board traversal
-│   │   │   │   ├── Queue.java               # Card decks (FIFO)
-│   │   │   │   ├── Stack.java               # Undo/Redo (LIFO)
-│   │   │   │   ├── HashTable.java           # O(1) lookups
-│   │   │   │   ├── Tree.java                # Player asset hierarchy
-│   │   │   │   ├── BST.java                 # Sorted rankings
-│   │   │   │   ├── Heap.java                # Top-K queries
-│   │   │   │   └── Graph.java               # Financial interactions
-│   │   │   │
-│   │   │   ├── model/                       # Game entities
-│   │   │   │   ├── game/                    # GameState, Board, Dice, Bank
-│   │   │   │   ├── player/                  # Player, PlayerAssets
-│   │   │   │   ├── tile/                    # All tile types
-│   │   │   │   ├── property/                # Property, ColorGroup, Building
-│   │   │   │   └── card/                    # Chance & Community Chest cards
-│   │   │   │
-│   │   │   ├── server/                      # Server-side code
-│   │   │   │   ├── Server.java              # Main server
-│   │   │   │   ├── ClientHandler.java       # Per-client handler
-│   │   │   │   └── GameController.java      # Game logic controller
-│   │   │   │
-│   │   │   ├── client/                      # Client-side code
-│   │   │   │   ├── Client.java              # Main client
-│   │   │   │   └── ServerConnection.java    # Network connection
-│   │   │   │
-│   │   │   ├── logic/                       # Game logic managers
-│   │   │   │   ├── GameLogic.java
-│   │   │   │   ├── TurnManager.java
-│   │   │   │   ├── RentCalculator.java
-│   │   │   │   ├── AuctionManager.java
-│   │   │   │   ├── TradeManager.java
-│   │   │   │   ├── JailManager.java
-│   │   │   │   ├── BankruptcyManager.java
-│   │   │   │   └── ConstructionManager.java
-│   │   │   │
-│   │   │   ├── transaction/                 # Atomic transactions
-│   │   │   ├── history/                     # Undo/Redo system
-│   │   │   ├── analytics/                   # Reports & rankings
-│   │   │   │
-│   │   │   ├── network/                     # Network protocol
-│   │   │   │   ├── protocol/                # Message types
-│   │   │   │   └── serialization/           # JSON serialization
-│   │   │   │
-│   │   │   ├── gui/                         # JavaFX GUI
-│   │   │   │   ├── MainApp.java             # Application entry
-│   │   │   │   ├── controllers/             # FXML controllers
-│   │   │   │   ├── views/                   # Custom view components
-│   │   │   │   └── components/              # Reusable UI components
-│   │   │   │
-│   │   │   └── util/                        # Utilities & constants
-│   │   │
-│   │   └── resources/
-│   │       ├── fxml/                        # FXML layouts
-│   │       ├── css/                         # Stylesheets
-│   │       ├── images/                      # Game images (TODO)
-│   │       └── config/                      # Game configuration
-│   │
-│   └── test/java/com/monopoly/             # Unit tests
-│
-├── pom.xml                                  # Maven build file
-└── README.md                                # This file
-```
+### Basic Rules
 
----
+1. **Starting the Game**
+   - Each player starts with $1500
+   - Players take turns rolling dice and moving clockwise around the board
 
-## 🧱 Data Structures Implementation (50% of Grade)
+2. **Buying Properties**
+   - Land on an unowned property → Buy it or put it up for auction
+   - Own all properties of a color → You have a monopoly!
 
-| Data Structure | Role | Implementation File |
-|:---|:---|:---|
-| **Circular Linked List** | Board (40 tiles in loop) | `CircularLinkedList.java` |
-| **Queue (FIFO)** | Chance & Community Chest decks | `Queue.java` |
-| **Stack (LIFO)** | Undo & Redo stacks | `Stack.java` |
-| **Hash Table** | O(1) Player/Property lookup | `HashTable.java` |
-| **Tree** | Player Asset Hierarchy | `Tree.java` |
-| **BST** | Sorted Player Rankings | `BST.java` |
-| **Heap** | Top-K Reports | `Heap.java` |
-| **Graph** | Financial Interactions | `Graph.java` |
+3. **Building**
+   - Must own all properties in a color group to build
+   - Build houses evenly across your monopoly
+   - 4 houses → Can upgrade to a hotel
 
----
+4. **Rent**
+   - Other players landing on your property must pay rent
+   - Rent increases with houses/hotels
+   - Mortgaged properties don't collect rent
 
-## 📡 Architecture
+5. **Special Spaces**
+   - **GO** - Collect $200 when passing
+   - **Jail** - Just visiting, or sent to jail
+   - **Free Parking** - Safe space, no action
+   - **Income/Luxury Tax** - Pay the bank
 
-### Server (Single Source of Truth)
-- Holds complete `GameState`
-- Generates dice rolls
-- Enforces all game rules
-- Manages data structures
-- Handles 4 concurrent TCP connections
-- **Atomic transactions** for all money transfers
+6. **Getting Out of Jail**
+   - Pay $50 fine
+   - Use "Get Out of Jail Free" card
+   - Roll doubles (3 attempts max)
 
-### Client (Visualization Only)
-- Connects via Socket
-- Sends commands (`ROLL_DICE`, `BUY_PROPERTY`, etc.)
-- Receives `STATE_UPDATE` events
-- **Never calculates game logic**
-- Only displays what server tells it
+7. **Bankruptcy**
+   - Can't pay a debt? You're bankrupt!
+   - Your properties go to your creditor or back to the bank
 
-### Turn State Machine
-```
-TURN_START → ROLL → MOVE → DECISION → TURN_END
-                              ↓
-                        AUCTION / TRADE
-```
+## 🛠️ Tech Stack
 
----
+| Component | Technology |
+|-----------|------------|
+| Language | Java 17 |
+| GUI Framework | JavaFX 17 |
+| Build Tool | Maven |
+| Networking | Java Sockets (TCP) |
+| Serialization | Custom JSON Protocol |
 
-## 🎮 Game Rules (Simplified)
+### Custom Data Structures
 
-- **4 Players** required
-- **GO Bonus:** $200 for passing GO
-- **Jail:** Max 2 turns, exit via Doubles/Fine/Card
-- **Auction:** Mandatory if player declines to buy
-- **Building:** Requires complete Color Group
-- **Bankruptcy:** Assets return to Bank, game ends with 1 player
+This project implements custom data structures from scratch:
 
----
+- **ArrayList** - Dynamic array implementation
+- **LinkedList** - Doubly linked list
+- **Stack** - LIFO data structure
+- **Queue** - FIFO data structure
+- **HashTable** - Key-value storage with collision handling
+- **BST** - Binary Search Tree
+- **Heap** - Priority queue implementation
+- **Graph** - For analytics and property relationships
 
-## 🛠️ Building & Running
+## 📦 Installation
 
 ### Prerequisites
-- Java 17+
-- Maven 3.6+
-- JavaFX 17
 
-### Build
+- Java 17 or higher
+- Maven 3.6+
+
+### Clone & Build
+
 ```bash
-mvn clean compile
+git clone https://github.com/Kourosh37/monopoly.git
+cd monopoly
+mvn clean install
 ```
 
-### Run Server
+## 🚀 How to Run
+
+### Option 1: Host a Game
+
+**Step 1:** Start the server
 ```bash
 mvn exec:java -Dexec.mainClass="com.monopoly.server.ServerMain"
 ```
 
-### Run Client
+**Step 2:** Launch the client
 ```bash
 mvn javafx:run
 ```
 
+**Step 3:** In the connection screen:
+- Enter your name
+- Server: `localhost`
+- Port: `12345`
+- Click "Connect to Server"
+
+### Option 2: Join an Existing Game
+
+```bash
+mvn javafx:run
+```
+
+Then enter the host's IP address and port.
+
+### Playing with Friends on LAN
+
+1. Host starts the server on their machine
+2. Host shares their local IP (e.g., `192.168.1.100`)
+3. Friends connect using that IP and port `12345`
+
+## 🎮 Controls
+
+| Action | How |
+|--------|-----|
+| Roll Dice | Click "🎲 ROLL DICE" button |
+| Buy Property | Click "Buy" when prompted |
+| Build House | Click "Build House" (must own monopoly) |
+| Trade | Click "💱 Propose Trade" |
+| End Turn | Click "✓ END TURN" |
+| Mortgage | Click "Mortgage" on property panel |
+
+## 📁 Project Structure
+
+```
+monopoly/
+├── src/main/java/com/monopoly/
+│   ├── client/          # Client networking
+│   ├── server/          # Server & game rooms
+│   ├── model/           # Game entities (Player, Property, etc.)
+│   ├── logic/           # Game rules & logic
+│   ├── gui/             # JavaFX controllers & UI
+│   ├── datastructures/  # Custom data structures
+│   ├── network/         # Protocol & serialization
+│   └── analytics/       # Game statistics
+├── src/main/resources/
+│   ├── fxml/            # UI layouts
+│   ├── css/             # Dark theme styles
+│   └── images/          # Game assets
+└── src/test/            # Unit tests
+```
+
+## 🎨 Screenshots
+
+### Connection Screen
+- Modern dark theme login
+- Token selection with emojis
+- Host or join game options
+
+### Game Board
+- Classic Monopoly layout
+- Animated player tokens
+- Real-time game log
+
+### Trade Dialog
+- Intuitive property selection
+- Money negotiation
+- Accept/decline interface
+
+## ⚙️ Configuration
+
+Server settings can be modified in `ServerMain.java`:
+
+```java
+int port = 12345;        // Server port
+int minPlayers = 2;      // Minimum players to start
+int maxPlayers = 6;      // Maximum players per room
+```
+
+## 🧪 Running Tests
+
+```bash
+mvn test
+```
+
+## 📝 Notes
+
+- The game uses TCP sockets for reliable communication
+- All game state is managed server-side to prevent cheating
+- The UI updates in real-time using JavaFX's Platform.runLater()
+- Custom data structures are used instead of Java Collections
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🙏 Acknowledgments
+
+- Original Monopoly game by Hasbro
+- JavaFX community for UI inspiration
+- All contributors and testers
+
 ---
 
-## 📝 Development Roadmap
-
-1. [ ] Implement all Data Structures
-2. [ ] Implement Model classes
-3. [ ] Implement Server & Network Protocol
-4. [ ] Implement Client connection
-5. [ ] Implement Game Logic managers
-6. [ ] Implement Transaction system
-7. [ ] Implement Undo/Redo
-8. [ ] Implement Analytics & Reports
-9. [ ] Build JavaFX GUI
-10. [ ] Testing & Integration
-
----
-
-## ⚠️ Important Constraints
-
-1. **No built-in collections** for core data structures
-2. **Server is Single Source of Truth** - never update state in client
-3. **Atomic transactions** - all-or-nothing for money transfers
-4. **Handle disconnections** - server must remain consistent
-
----
-
-## 📊 Analytics Features
-
-Using Heap & Graph structures:
-- Top-K Richest Players
-- Top-K Rent Collectors
-- Most Financial Interaction pair
-- Player Rankings (BST in-order traversal)
+**Enjoy the game! 🎲🏠💰**
