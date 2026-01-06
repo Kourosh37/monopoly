@@ -20,7 +20,6 @@ import java.time.format.DateTimeFormatter;
 import com.monopoly.client.Client;
 import com.monopoly.model.game.GameState;
 import com.monopoly.model.player.Player;
-import com.monopoly.datastructures.ArrayList;
 
 /**
  * Main controller for the game window.
@@ -345,10 +344,9 @@ public class MainController implements Initializable {
         if (currentGameState == null) return;
         
         playerCardsContainer.getChildren().clear();
-        ArrayList<Player> players = currentGameState.getPlayers();
         
-        for (int i = 0; i < players.size(); i++) {
-            Player player = players.get(i);
+        // Get players from HashTable
+        for (Player player : currentGameState.getPlayers().values()) {
             VBox playerCard = createPlayerCard(player);
             playerCardsContainer.getChildren().add(playerCard);
         }
@@ -414,7 +412,7 @@ public class MainController implements Initializable {
     /**
      * Gets the color for a player token
      */
-    private Color getTokenColor(com.monopoly.model.player.PlayerToken token) {
+    private Color getTokenColor(com.monopoly.model.player.TokenType token) {
         if (token == null) return Color.GRAY;
         switch (token) {
             case CAR: return Color.web("#e94560");
@@ -424,7 +422,7 @@ public class MainController implements Initializable {
             case BOOT: return Color.web("#ff9800");
             case THIMBLE: return Color.web("#9c27b0");
             case WHEELBARROW: return Color.web("#795548");
-            case IRON: return Color.web("#607d8b");
+            case CAT: return Color.web("#607d8b");
             default: return Color.GRAY;
         }
     }
@@ -634,5 +632,40 @@ public class MainController implements Initializable {
         Platform.runLater(() -> {
             roomInfoLabel.setText("Room: " + roomId + " (" + playerCount + "/" + maxPlayers + ")");
         });
+    }
+    
+    // Reference to main app
+    private com.monopoly.gui.MainApp mainApp;
+    
+    /**
+     * Sets the main application reference
+     */
+    public void setMainApp(com.monopoly.gui.MainApp mainApp) {
+        this.mainApp = mainApp;
+    }
+    
+    /**
+     * Gets the main application reference
+     */
+    public com.monopoly.gui.MainApp getMainApp() {
+        return mainApp;
+    }
+    
+    /**
+     * Opens trade dialog
+     */
+    public void openTradeDialog() {
+        if (mainApp != null) {
+            mainApp.showTradeDialog();
+        }
+    }
+    
+    /**
+     * Opens auction dialog
+     */
+    public void openAuctionDialog() {
+        if (mainApp != null) {
+            mainApp.showAuctionDialog();
+        }
     }
 }

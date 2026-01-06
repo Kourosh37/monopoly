@@ -23,7 +23,6 @@ import com.monopoly.model.tile.*;
 import com.monopoly.model.player.Player;
 import com.monopoly.model.property.Property;
 import com.monopoly.model.property.ColorGroup;
-import com.monopoly.datastructures.ArrayList;
 import com.monopoly.datastructures.HashTable;
 
 /**
@@ -340,10 +339,8 @@ public class BoardController {
      * Updates player token positions
      */
     private void updatePlayerPositions(GameState state) {
-        ArrayList<Player> players = state.getPlayers();
-        
-        for (int i = 0; i < players.size(); i++) {
-            Player player = players.get(i);
+        int playerIndex = 0;
+        for (Player player : state.getPlayers().values()) {
             int playerId = player.getId();
             int position = player.getPosition();
             
@@ -363,10 +360,11 @@ public class BoardController {
                     animateTokenMove(token, oldPos, position);
                 } else {
                     // Just place token
-                    placeTokenOnTile(token, position, i);
+                    placeTokenOnTile(token, position, playerIndex);
                 }
                 playerPositions.put(playerId, position);
             }
+            playerIndex++;
         }
     }
     
@@ -386,7 +384,7 @@ public class BoardController {
     /**
      * Gets color for player token
      */
-    private Color getTokenColor(com.monopoly.model.player.PlayerToken tokenType) {
+    private Color getTokenColor(com.monopoly.model.player.TokenType tokenType) {
         if (tokenType == null) return Color.GRAY;
         switch (tokenType) {
             case CAR: return Color.web("#e94560");
@@ -396,7 +394,7 @@ public class BoardController {
             case BOOT: return Color.web("#ff9800");
             case THIMBLE: return Color.web("#9c27b0");
             case WHEELBARROW: return Color.web("#795548");
-            case IRON: return Color.web("#607d8b");
+            case CAT: return Color.web("#607d8b");
             default: return Color.GRAY;
         }
     }

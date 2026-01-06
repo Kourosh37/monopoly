@@ -3,28 +3,141 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.Priority?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.Spinner?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.geometry.Insets?>
 
 <!--
     Trade dialog for proposing trades between players.
+    Beautiful dark theme design.
 -->
 <VBox xmlns:fx="http://javafx.com/fxml"
       fx:controller="com.monopoly.gui.controllers.TradeDialogController"
       styleClass="trade-dialog"
       spacing="15"
-      prefWidth="600"
-      prefHeight="500">
+      prefWidth="700"
+      prefHeight="550"
+      style="-fx-background-color: #0f0f23; -fx-padding: 20;">
 
-    <!-- TODO: Add header "Propose Trade" -->
-    <!-- TODO: Add target player selector (ComboBox) -->
-    <!-- TODO: Add two-column layout: Your Offer | Your Request -->
-    <!-- TODO: Add property lists with add/remove buttons -->
-    <!-- TODO: Add money spinners -->
-    <!-- TODO: Add Get Out of Jail card spinners -->
-    <!-- TODO: Add Propose and Cancel buttons -->
-
+    <!-- Header -->
+    <HBox alignment="CENTER" spacing="10">
+        <Label text="💱" style="-fx-font-size: 28px;"/>
+        <Label text="Propose Trade" styleClass="dialog-title" 
+               style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #ffffff;"/>
+    </HBox>
+    
+    <!-- Target Player Selection -->
+    <HBox alignment="CENTER" spacing="15" style="-fx-padding: 10;">
+        <Label text="Trade with:" style="-fx-text-fill: #aaaaaa; -fx-font-size: 14px;"/>
+        <ComboBox fx:id="targetPlayerComboBox" promptText="Select Player"
+                  prefWidth="250" styleClass="trade-combo"
+                  style="-fx-background-color: #1a1a2e; -fx-text-fill: #ffffff;"/>
+    </HBox>
+    
+    <Separator style="-fx-background-color: #333355;"/>
+    
+    <!-- Main Trade Area - Two Columns -->
+    <HBox spacing="20" VBox.vgrow="ALWAYS">
+        
+        <!-- YOUR OFFER (Left Column) -->
+        <VBox spacing="10" HBox.hgrow="ALWAYS" style="-fx-background-color: #1a1a2e; -fx-background-radius: 10; -fx-padding: 15;">
+            <Label text="📤 YOUR OFFER" style="-fx-font-size: 14px; -fx-font-weight: bold; -fx-text-fill: #00c853;"/>
+            
+            <!-- Your Money -->
+            <HBox alignment="CENTER_LEFT" spacing="10">
+                <Label text="Your Balance:" style="-fx-text-fill: #888888; -fx-font-size: 12px;"/>
+                <Label fx:id="myMoneyLabel" text="$0" style="-fx-text-fill: #00c853; -fx-font-weight: bold;"/>
+            </HBox>
+            
+            <!-- Offer Money -->
+            <HBox alignment="CENTER_LEFT" spacing="10">
+                <Label text="💵 Offer Money:" style="-fx-text-fill: #ffffff; -fx-font-size: 13px;" minWidth="100"/>
+                <Spinner fx:id="offeredMoneySpinner" prefWidth="120" styleClass="trade-spinner"
+                         style="-fx-background-color: #16213e;"/>
+            </HBox>
+            
+            <!-- Your Properties -->
+            <Label text="🏠 Your Properties (click to offer):" style="-fx-text-fill: #aaaaaa; -fx-font-size: 12px;"/>
+            <ScrollPane fitToWidth="true" VBox.vgrow="ALWAYS" 
+                        style="-fx-background: #16213e; -fx-background-color: #16213e;">
+                <VBox fx:id="myPropertiesBox" spacing="5" style="-fx-padding: 5;">
+                    <!-- Properties populated dynamically -->
+                </VBox>
+            </ScrollPane>
+            
+            <!-- Offered Items -->
+            <Label text="✅ Offering:" style="-fx-text-fill: #00c853; -fx-font-size: 12px; -fx-font-weight: bold;"/>
+            <VBox fx:id="offeredPropertiesBox" spacing="3" minHeight="50" 
+                  style="-fx-background-color: #00c85322; -fx-background-radius: 5; -fx-padding: 8;">
+                <!-- Offered items appear here -->
+            </VBox>
+        </VBox>
+        
+        <!-- YOUR REQUEST (Right Column) -->
+        <VBox spacing="10" HBox.hgrow="ALWAYS" style="-fx-background-color: #1a1a2e; -fx-background-radius: 10; -fx-padding: 15;">
+            <Label text="📥 YOUR REQUEST" style="-fx-font-size: 14px; -fx-font-weight: bold; -fx-text-fill: #e94560;"/>
+            
+            <!-- Their Money -->
+            <HBox alignment="CENTER_LEFT" spacing="10">
+                <Label text="Their Balance:" style="-fx-text-fill: #888888; -fx-font-size: 12px;"/>
+                <Label fx:id="theirMoneyLabel" text="$0" style="-fx-text-fill: #e94560; -fx-font-weight: bold;"/>
+            </HBox>
+            
+            <!-- Request Money -->
+            <HBox alignment="CENTER_LEFT" spacing="10">
+                <Label text="💵 Request Money:" style="-fx-text-fill: #ffffff; -fx-font-size: 13px;" minWidth="100"/>
+                <Spinner fx:id="requestedMoneySpinner" prefWidth="120" styleClass="trade-spinner"
+                         style="-fx-background-color: #16213e;"/>
+            </HBox>
+            
+            <!-- Their Properties -->
+            <Label text="🏠 Their Properties (click to request):" style="-fx-text-fill: #aaaaaa; -fx-font-size: 12px;"/>
+            <ScrollPane fitToWidth="true" VBox.vgrow="ALWAYS"
+                        style="-fx-background: #16213e; -fx-background-color: #16213e;">
+                <VBox fx:id="theirPropertiesBox" spacing="5" style="-fx-padding: 5;">
+                    <!-- Properties populated dynamically -->
+                </VBox>
+            </ScrollPane>
+            
+            <!-- Requested Items -->
+            <Label text="✅ Requesting:" style="-fx-text-fill: #e94560; -fx-font-size: 12px; -fx-font-weight: bold;"/>
+            <VBox fx:id="requestedPropertiesBox" spacing="3" minHeight="50"
+                  style="-fx-background-color: #e9456022; -fx-background-radius: 5; -fx-padding: 8;">
+                <!-- Requested items appear here -->
+            </VBox>
+        </VBox>
+    </HBox>
+    
+    <!-- Status Label -->
+    <Label fx:id="tradeStatusLabel" text="" alignment="CENTER" 
+           style="-fx-text-fill: #888888; -fx-font-size: 13px;" maxWidth="Infinity"/>
+    
+    <!-- Button Area -->
+    <HBox alignment="CENTER" spacing="20" style="-fx-padding: 10 0 0 0;">
+        <!-- Propose Buttons -->
+        <HBox fx:id="proposeButtonsBox" spacing="15" alignment="CENTER">
+            <Button fx:id="proposeButton" text="📤 Propose Trade" onAction="#handlePropose"
+                    prefWidth="160" prefHeight="40"
+                    style="-fx-background-color: #00c853; -fx-text-fill: #ffffff; -fx-font-size: 14px; -fx-font-weight: bold; -fx-background-radius: 8; -fx-cursor: hand;"/>
+            <Button fx:id="cancelButton" text="✖ Cancel" onAction="#handleCancel"
+                    prefWidth="120" prefHeight="40"
+                    style="-fx-background-color: #444466; -fx-text-fill: #ffffff; -fx-font-size: 14px; -fx-background-radius: 8; -fx-cursor: hand;"/>
+        </HBox>
+        
+        <!-- Response Buttons (for incoming trades) -->
+        <HBox fx:id="responseButtonsBox" spacing="15" alignment="CENTER" visible="false" managed="false">
+            <Button fx:id="acceptButton" text="✓ Accept" onAction="#handleAccept"
+                    prefWidth="120" prefHeight="40"
+                    style="-fx-background-color: #00c853; -fx-text-fill: #ffffff; -fx-font-size: 14px; -fx-font-weight: bold; -fx-background-radius: 8; -fx-cursor: hand;"/>
+            <Button fx:id="declineButton" text="✗ Decline" onAction="#handleDecline"
+                    prefWidth="120" prefHeight="40"
+                    style="-fx-background-color: #e94560; -fx-text-fill: #ffffff; -fx-font-size: 14px; -fx-font-weight: bold; -fx-background-radius: 8; -fx-cursor: hand;"/>
+        </HBox>
+    </HBox>
 </VBox>
